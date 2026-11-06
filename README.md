@@ -6,46 +6,46 @@ The model inputs include atom types, bond types, molecular connectivity, three d
 
 ## Repository Structure
 
-```text
+text
 configs/        Model configuration files
 data/           Thermal conductivity data, R1216 prediction conditions, and molecular structure files
 checkpoints/    Clean public GeoRT checkpoint for prediction
 scripts/        Dataset checking script
 src/            Source code of GeoRT
-```
+
 
 ## Installation
 
-```bash
+
 pip install -r requirements.txt
 pip install -e .
-```
+
 
 If RDKit cannot be installed by pip, install it with conda:
 
-```bash
+bash
 conda install -c conda-forge rdkit
-```
+
 
 ## Dataset Check
 
-```bash
+bash
 python scripts/check_dataset.py --config configs/geort_groupdro_monotonic.yaml
-```
+
 
 ## Training
 
-```bash
+bash
 python -m refrig_geotransformer.train --config configs/geort_groupdro_monotonic.yaml
-```
+
 
 ## Prediction
 
-```bash
+bash
 python -m refrig_geotransformer.predict \
   --checkpoint checkpoints/geort_r1216_external.pt \
   --molecule data/mol/R1216.mol \
   --conditions data/r1216_conditions.csv \
   --output outputs/predictions_R1216.csv
-```
+
 
